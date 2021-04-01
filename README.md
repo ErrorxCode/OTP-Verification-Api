@@ -16,10 +16,21 @@
 - SMS Verification is only for Android users.
 
 ## Implimentation
-
-
-
-
+Add maven to your root build.gradle
+```
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
+```
+Add the dependency
+```
+dependencies {
+	     implementation 'com.github.ErrorxCode:OTP-Verification-Api:1.0'
+}
+```
 
 ## Tutorial
 **To request OTP using E-mail**
