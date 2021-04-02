@@ -6,14 +6,16 @@
 ### Pros
 - Lightweight, hence easy to use
 - Free & No account needed
-- Backup/Mirror servers, in case of emergency.
+- 3 Backup servers, in case of emergency or quota reached.
 - Require Almost zero knowledge, just one word to wright.
 - Open source, hence anyone can contribute
 
-### Cons / Limitations [only email]
-- By SERVER_MAIN, you can request only 100 OTPs/hour & 200 a day.
-- By SERVER_MIRROR, you can send 100 OTP a day but 500/month.
+### Cons / Limitations 
+- You can request OTP via mail only limited number of times per day
 - SMS Verification is only for Android users.
+- The server will only accepts limited no. of OTP request made via email. doesn't matter who is using it, it will be counted by the server for everyone 🤐
+
+***I will fix these issue in next release, if I get enough support***.
 
 ## Implimentation
 Add maven to your root build.gradle
@@ -28,7 +30,7 @@ allprojects {
 Add the dependency
 ```
 dependencies {
-	     implementation 'com.github.ErrorxCode:OTP-Verification-Api:1.0'
+	     implementation 'com.github.ErrorxCode:OTP-Verification-Api:1.5'
 }
 ```
 
