@@ -20,9 +20,17 @@ public class EmailVerification {
      */
     public static final int SERVER_MAIN = 1;
     /**
+     * This is an alternative of SERVER_MAIN. only try if original one is not working.
+     */
+    public static final int SERVER_ALTERNATIVE = 2;
+    /**
      * Through this server, you can only request 100 OTPs per day but 500 a month.
      */
-    public static final int SERVER_MIRROR = 2;
+    public static final int SERVER_MIRROR = -1;
+    /**
+     * This is an alternative of SERVER_MIRROR. only try if original one is not working.
+     */
+    public static final int SERVER_BACKUP = -2;
     private static String OTP;
     private static boolean EXPIRED = false;
     private static OnCodeSent onCodeSentListener;
@@ -56,22 +64,41 @@ public class EmailVerification {
         String port;
         String username;
         String password;
+        String from;
         OTP = GenerateOTP(digits);
         EXPIRED = false;
         EmailVerification.onCodeSentListener = onCodeSentListener;
-
-        if (Server == SERVER_MIRROR){
-           host = "smtp.elasticemail.com";
-           port = "2525";
-           username = "hackerinsiderahil@gmail.com";
-           password = "D3FB44421D0D9E4AE3E1A330210EC2A8D4F8";
-        } else if (Server == SERVER_MAIN){
-            host = "in-v3.mailjet.com";
-            port = "25";
-            username = "65d44b96b4349c60541935ee3c1f8329";
-            password = "31d0427fae7a8667a1a87fb7639934ea";
-        } else {
-            throw new InvalidServerException("Server must be one of SERVER_MAIN or SERVER_MIRROR");
+        switch (Server) {
+            case SERVER_MIRROR:
+                host = "smtp.elasticemail.com";
+                port = "2525";
+                username = "hackerinsiderahil@gmail.com";
+                password = "D3FB44421D0D9E4AE3E1A330210EC2A8D4F8";
+                from = "hackerinsiderahil@gmail.com";
+                break;
+            case SERVER_MAIN:
+                host = "in-v3.mailjet.com";
+                port = "25";
+                username = "65d44b96b4349c60541935ee3c1f8329";
+                password = "31d0427fae7a8667a1a87fb7639934ea";
+                from = "hackerinsiderahil@gmail.com";
+                break;
+            case SERVER_ALTERNATIVE:
+                host = "in-v3.mailjet.com";
+                port = "25";
+                username = "65f16479b1528ecb2fa20dc63122514e";
+                password = "bef0c2fa86e96c51a5dc83e8862a8bcb";
+                from = "peltobiyde@biyac.com";
+                break;
+            case SERVER_BACKUP:
+                host = "smtp.elasticemail.com";
+                port = "2525";
+                username = "smtp_backup_elastic-mail@gmail.com";
+                password = "13B8D6CBBBC5B2D928BFEA2D37DA17F1ACCD";
+                from = "lakihod817@0pppp.com";
+                break;
+            default:
+                throw new InvalidServerException("Server must be one of SERVER_MAIN or SERVER_MIRROR");
         }
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
@@ -88,7 +115,7 @@ public class EmailVerification {
 
         MimeMessage message = new MimeMessage(session);
         try {
-            message.setFrom(new InternetAddress("hackerinsiderahil@gmail.com"));
+            message.setFrom(new InternetAddress(from));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
             message.setSubject("Verification code request");
             message.setText("Your Verification code is: " + OTP);
