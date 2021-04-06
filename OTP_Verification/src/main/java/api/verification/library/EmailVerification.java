@@ -28,6 +28,10 @@ public class EmailVerification {
      */
     public static final int SERVER_MIRROR = -1;
     /**
+     * This is the custom server, this will only work if you have set it using <code>setCustomServer()</code> method.
+     */
+    public static final int SERVER_CUSTOM = 0;
+    /**
      * This is an alternative of SERVER_MIRROR. only try if original one is not working.
      */
     public static final int SERVER_BACKUP = -2;
@@ -35,6 +39,11 @@ public class EmailVerification {
     private static boolean EXPIRED = false;
     private static OnCodeSent onCodeSentListener;
     private static OnVerifyCode onVerifyCodeListener;
+    private static String CUSTOM_HOST;
+    private static String CUSTOM_PORT;
+    private static String CUSTOM_USERNAME;
+    private static String CUSTOM_PASSWORD;
+    private static String CUSTOM_FROM;
 
 
     protected static String GenerateOTP(int digits){
@@ -97,8 +106,16 @@ public class EmailVerification {
                 password = "13B8D6CBBBC5B2D928BFEA2D37DA17F1ACCD";
                 from = "lakihod817@0pppp.com";
                 break;
+            case SERVER_CUSTOM:
+                host = CUSTOM_HOST;
+                port = CUSTOM_PORT;
+                username = CUSTOM_USERNAME;
+                password = CUSTOM_PASSWORD;
+                from = CUSTOM_FROM;
+                System.out.println(CUSTOM_FROM);
+                break;
             default:
-                throw new InvalidServerException("Server must be one of SERVER_MAIN or SERVER_MIRROR");
+                throw new InvalidServerException("Server must be one of SERVER_MAIN or SERVER_MIRROR or their alternatives");
         }
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
@@ -156,5 +173,20 @@ public class EmailVerification {
                 onVerifyCodeListener.VerificationFailed(new MessagingException("Incorrect OTP"));
             }
         }
+    }
+    /**
+     * This will create a new server with custom properties set by you. you can use this by using <code>CUSTOM_SERVER</code>. Unfortunately, you have to declare this method every time you use CUSTOM_SERVER.
+     * @param host  The host of the SMTP server
+     * @param port  The port of the SMTP server
+     * @param username  The username of the SMTP server
+     * @param password  The password of the SMTP server
+     * @param email  The email of the SMTP server, provided by the Service provider.
+     **/
+    public static void setCustomServer(String host, String port, String username, String password, String email){
+        CUSTOM_HOST = host;
+        CUSTOM_FROM = email;
+        CUSTOM_PORT = port;
+        CUSTOM_PASSWORD = password;
+        CUSTOM_USERNAME = username;
     }
 }
