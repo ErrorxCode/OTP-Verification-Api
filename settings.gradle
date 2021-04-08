@@ -1,0 +1,2 @@
+include ':OTP_Verification'
+rootProject.name = "Verification API"
