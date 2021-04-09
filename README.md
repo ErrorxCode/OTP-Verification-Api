@@ -2,20 +2,49 @@
 
 ***Most Easiest & lightweight library you had ever seen. Now verify Email's / Phone using this API. Just one line & you are all done, Although this API has some limitation***. 
 
-
+## Normal Server
 ### Pros
-- Lightweight, hence easy to use
 - Free & No account needed
-- 3 Backup servers, in case of emergency or quota reached.
-- Require Almost zero knowledge, just one word to wright.
-- Open source, hence anyone can contribute
+- 2 Backup servers, in case of emergency or quota reached.
 
 ### Cons / Limitations 
 - You can request OTP via mail only limited number of times per day
-- SMS Verification is only for Android users.
+- SMS Verification is only for Android users & carrier charge may apply.
 - The server will only accepts limited no. of OTP request made via email. doesn't matter who is using it, it will be counted by the server for everyone 🤐
 
 ***I will fix these issue in next release, if I get enough support***.
+
+## Premium servers
+#### Pros & Features:
+- Your personal server, hence it will be only used by you.
+- Free, Fast & Genuine
+- It will only count your request as your daily limit or quata.
+- Higher limits & quata, hence more OTPs requests a day.
+- Free 700 + email verification
+- 3 Backup Server available.
+
+#### Usage:
+```
+        EmailVerification.setCustomServer(SERVER_ADDRESS,PORT,USERNAME,PASSWORD); // All these will be provided once you purchase premium server.
+        EmailVerification.RequestOTP(EmailVerification.SERVER_CUSTOM, "xxxx", "xxxx@gmail.com", new OnCodeSent() {
+            @Override
+            public void SentSuccessful(String OTP) {
+                // Do what you want
+            }
+
+            @Override
+            public void SentFailed(Exception e) {
+                // may be because, email is invalid or disposable
+            }
+        });
+
+```
+#### How to get ?
+Contact me & I will provide you premium server within 48 hours. Contacting options:-
+- [Telegram ](http://t.me/ErrorxCode)
+- [Instagram](https://www.instagram.com/x__coder__x/)
+- [Youtube comments](https://youtu.be/hO7CE1Q0AI0) (Recommended)
+- [Email](https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=GTvVlcSHxjTVLBKvrdShskXbmtQkKVHsBRwnjlvJDRTmRkcZCZKnQBhMQQpNGtbqrXlDxJGrtrPML) (Late reply)
 
 ## Implimentation
 Add maven to your root build.gradle
@@ -30,7 +59,7 @@ allprojects {
 Add the dependency
 ```
 dependencies {
-	     implementation 'com.github.ErrorxCode:OTP-Verification-Api:1.5'
+	     implementation 'com.github.ErrorxCode:OTP-Verification-Api:2.5'
 }
 ```
 
