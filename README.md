@@ -44,7 +44,7 @@ Contact me & I will provide you premium server within 48 hours. Contacting optio
 - [Telegram ](http://t.me/ErrorxCode)
 - [Instagram](https://www.instagram.com/x__coder__x/)
 - [Youtube comments](https://youtu.be/hO7CE1Q0AI0) (Recommended)
-- [Email](https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=GTvVlcSHxjTVLBKvrdShskXbmtQkKVHsBRwnjlvJDRTmRkcZCZKnQBhMQQpNGtbqrXlDxJGrtrPML) (Late reply)
+- [Email at hackerinsiderahil@gmail.com](https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=GTvVlcSHxjTVLBKvrdShskXbmtQkKVHsBRwnjlvJDRTmRkcZCZKnQBhMQQpNGtbqrXlDxJGrtrPML) (Late reply)
 
 ## Implimentation
 Add maven to your root build.gradle
