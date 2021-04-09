@@ -65,7 +65,7 @@ public class EmailVerification {
      * @param Server  The Server to send mail
      * @param to  Receivers Address (email)
      */
-    public static void RequestOTP(int Server,String name, String to, OnCodeSent onCodeSentListener) throws DisposableEmailException {
+    public static void RequestOTP(int Server,String name, String to, OnCodeSent onCodeSentListener) {
         String host;
         String port;
         String username;
@@ -131,7 +131,7 @@ public class EmailVerification {
                 }
             },1000*60*5);
             if (isTempMail(to,Server))
-                throw new DisposableEmailException("SERVER_ALTERNATIVE don't allow to send emails on unverified domains, if your domains is not a disposable then please contact us throw github");
+                throw new DisposableEmailException("SERVER_ALTERNATIVE don't allow to send emails on unverified domains, if your domains is not a disposable then please contact us through github");
         } catch (MessagingException | UnsupportedEncodingException e) {
             e.printStackTrace();
             if (onCodeSentListener != null)
