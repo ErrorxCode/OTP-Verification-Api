@@ -62,6 +62,7 @@ dependencies {
 	     implementation 'com.github.ErrorxCode:OTP-Verification-Api:2.5'
 }
 ```
+[![](https://jitpack.io/v/ErrorxCode/OTP-Verification-Api.svg)](https://jitpack.io/#ErrorxCode/OTP-Verification-Api)
 
 ## Tutorial
 **To request OTP using E-mail**
