@@ -3,10 +3,9 @@
 <p align="left">
   <a href="#"><img alt="Android OS" src="https://img.shields.io/badge/OS-Android-3DDC84?style=flat-square&logo=android"></a>
   <a href="#"><img alt="Languages-Java" src="https://img.shields.io/badge/Language-Java-1DA1F2?style=flat-square&logo=java"></a>
-  <a href="#"><img alt="PRs" src="https://img.shields.io/badge/By-Rahil-red"></a>
-  <a href="#"><img alt="PRs" src="https://jitpack.io/v/ErrorxCode/OTP-Verification-Api.svg"></a>
-</p>
-
+  <a href="https://www.instagram.com/x__coder__x/"><img alt="Instagram - x__coder__" src="https://img.shields.io/badge/Instagram-x____coder____x-lightgrey"></a>
+  <a href="#"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ErrorxCode/OTP-Verification-Api?style=social"></a>
+  </p>
 ***Most Easiest & lightweight library you had ever seen. Now verify Email's / Phone using this API. Just one line & you are all done, Although this API has some limitation***. 
 
 ## Normal Server
