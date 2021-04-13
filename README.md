@@ -6,6 +6,7 @@
   <a href="https://www.instagram.com/x__coder__x/"><img alt="Instagram - x__coder__" src="https://img.shields.io/badge/Instagram-x____coder____x-lightgrey"></a>
   <a href="#"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ErrorxCode/OTP-Verification-Api?style=social"></a>
   </p>
+  
 ***Most Easiest & lightweight library you had ever seen. Now verify Email's / Phone using this API. Just one line & you are all done, Although this API has some limitation***. 
 
 ## Normal Server
