@@ -45,7 +45,7 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'com.errorxcode'
                 artifactId = 'PhoneVerification'
-                version = '3.0'
+                version = '5.3'
             }
         }
     }
