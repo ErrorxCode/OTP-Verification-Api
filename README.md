@@ -7,7 +7,10 @@
   <a href="#"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ErrorxCode/OTP-Verification-Api?style=social"></a>
   </p>
   
-***Most Easiest & lightweight library. Now verify Phone using this API. Just one line & you are all done, Although this API has some limitation***. 
+***This is an easy-2-use API for implementing OTP verification in your app. You don't need to write boilerplate code for requesting or verifying the code.
+  Just need to call respective method with 2-3 arguments and rest the library will manage. The main + point of this API is that it does not require internet to run, instead
+  it requires sim subscription to send sms. Only the - point is that, it will add 2 more permission to your manifest :(
+  One for sure is of SEND_SMS and another RECEIVE_SMS if you use auto-verification.***. 
 
 #### Pros & Features:
 - Your personal server, thus it will be only used by you.
