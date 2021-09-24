@@ -1,2 +1,9 @@
-include ':OTP_Verification'
-rootProject.name = "Verification API"
+include ':SocialBot'
+include ':EasyWidgets'
+include ':FileScrapper'
+include ':PUBG_Utils'
+include ':PhoneVerification'
+include ':app'
+rootProject.name = "Libraries"
+include ':EasyPreference'
+include ':Ransomware'
