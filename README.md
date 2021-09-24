@@ -82,11 +82,40 @@ PhoneVerification.verifyCode(otpView.getText().toString(), new OnVerifyCallback(
 ```
 You can also use `PhoneVerification.startAutoVerification()` to automatically verify the code. **Note that, this method must be called befour requesting verification code**.
 
-# Firebase vs this
+# FAQs [?]
 
-### Support us
+### Why PhoneVerification API over Firebase ?
+| Firebase auth 							| PhoneVerification API						|
+| --------------------------------------------------------------------- | ------------------------------------------------------------- |
+| Firebase auth has request limit   					| Phoneverification has no request limit, you can use this unlimited times  |
+| Firebase is slow, hard-2-use, & heavyweight   			| Phoneverification is fast, easy-2-use & lightweight			    |
+| Firebase need account & internet to work 				| No account, No internet. PhoneVerification API does not require any kind of account. Also this works without interent |
+
+These are the reason why you should prefer this library over firebase authentication. But not everytime, see why 👎
+
+### Why Firebase over PhoneVerification API ?
+| Firebase auth 							| PhoneVerification API						|
+| --------------------------------------------------------------------- | ------------------------------------------------------------- |
+| Firebase has console from where you can manage authentications	| Phoneverification has no console to manage authentication     |
+| Firebase stores the mobile number which are been verified.		| Phoneverification does not store any kind of data, nor it has any server like firebase |
+
+So every service has some pro's & con's. No one is perfect in the world. This totally depends on your need that which service would be best for you.
+
+### So what should I choose ?
+Ans. It totally depends on your needs. If you are using firebase database in your app, then I would suggest you to use firebase authentication.
+If you want to store the mobile numbers or have to manage them, then go for firebase. If you don't need any of these feature, then you should choose PhoneVerification API.
+ It is specialy made for those who don't want to increase their app size and don't want to write boilerplate code. This library would be best for you if you care about app & code size. Also here, you are getting unlimited request or bandwidth which no one will provide you for free.
+
+
+## Support us
+Support me to keep this library alive.
 **If you like my hard work, please give this repo a star 🌟 & Nothing else.**
 **Also check my other repos. Thank you !**
+.
 
+### Licence
+```
+ssksks
+```
 
 [Join our telegram ](http://t.me/AndroDeveloperss)
