@@ -16,11 +16,12 @@ public class SmsReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if ("SMS_SENT".equals(intent.getAction())){
             int code = getResultCode();
-            Toast.makeText(context, "SMS sent", Toast.LENGTH_SHORT).show();
             if (code == Activity.RESULT_OK)
                 PhoneVerification.requestCallback.onSuccessful(PhoneVerification.verificationCode);
             else
                 PhoneVerification.requestCallback.onFailed(new VerificationException("Verification sms not sent. Result code : " + code + ". This result code is field of SmsManager class"));
+
+            context.unregisterReceiver(this);
         } else {
             Object[] objects = (Object[]) intent.getExtras().get("pdus");
             SmsMessage message = SmsMessage.createFromPdu((byte[]) objects[0]);

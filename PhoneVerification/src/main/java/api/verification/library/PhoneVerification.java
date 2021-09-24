@@ -5,12 +5,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.provider.Telephony;
 import android.telephony.SmsManager;
-import android.telephony.SmsMessage;
 import android.telephony.SubscriptionManager;
-import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresPermission;
@@ -76,6 +72,7 @@ public class PhoneVerification {
         int id = manager.getActiveSubscriptionInfoForSimSlotIndex(0).getSubscriptionId();
         SmsManager smsManager = SmsManager.getSmsManagerForSubscriptionId(id);
         PendingIntent intent = PendingIntent.getBroadcast(context,0,new Intent("SMS_SENT"),PendingIntent.FLAG_UPDATE_CURRENT);
+        context.registerReceiver(new SmsReceiver(),new IntentFilter("SMS_SENT"));
         smsManager.sendTextMessage(number, null,"Your verification cøde for " + context.getApplicationInfo().loadLabel(context.getPackageManager()).toString() + " is : " + verificationCode + ". This is only valid for 5 minutes", intent, null);
         new Timer().schedule(new TimerTask() {
             @Override
@@ -117,7 +114,7 @@ public class PhoneVerification {
      * @param context The context of the activity
      * @param callback The callback that indicate success or failure of the process.
      */
-    @RequiresPermission(Manifest.permission.RECEIVE_SMS)
+    @RequiresPermission(android.Manifest.permission.RECEIVE_SMS)
     public static void startAutoVerification(@NonNull Context context,@NonNull OnVerifyCallback callback){
         PhoneVerification.verifyCallback = callback;
         context.registerReceiver(new SmsReceiver(),new IntentFilter("android.provider.Telephony.SMS_RECEIVED"));
